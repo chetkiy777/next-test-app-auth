@@ -38,7 +38,10 @@ export default function LoginForm() {
 
             if (response.data.status === "success") {
                 Notiflix.Notify.success(response.data.message)
-                localStorage.setItem("isAuth", JSON.stringify(true))
+                localStorage.setItem("auth", JSON.stringify({
+                    "email": email,
+                    "isAuth": true,
+                }))
                 router.push('/')
             } else {
                 Notiflix.Notify.failure(response.data.message)

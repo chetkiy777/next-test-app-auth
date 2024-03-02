@@ -1,10 +1,19 @@
 'use client'
 import { useRouter } from "next/navigation";
 import Notiflix from "notiflix";
+import { useEffect } from "react";
 
-export default function Header() {
+export interface HeaderProps {
+    email: String
+}
+
+export default function Header({email}: HeaderProps) {
 
     const router = useRouter()
+
+    useEffect(() => {
+        
+    },[])
 
     const logout = () => {
         localStorage.clear()
@@ -16,7 +25,7 @@ export default function Header() {
     return(
         <header className={"flex px-2 justify-between items-center h-10 w-full fixed top-0 left-0 bg-black text-white"}>
             <div>
-                email
+                {email}
             </div>
 
             <button onClick={logout}>
